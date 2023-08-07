@@ -83,6 +83,15 @@ class EmployeeRepositoryTest {
             employee.setEmail("mahesh@test.com");
             return employee;
         }
+
+    @Test
+    public void testFindByEmail(){
+        Employee employee = getEmployee();
+        employeeRepository.save(employee);
+        Employee result = employeeRepository.findByEmail(employee.getEmail());
+        assertNotNull(result);
+    }
+
 }
 
 
