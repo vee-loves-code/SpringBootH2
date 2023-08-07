@@ -1,12 +1,10 @@
 package com.veethebest.springbooth2.entity;
 
-import jakarta.persistence.Column;
-import jakarta.persistence.Entity;
-import jakarta.persistence.Id;
-import jakarta.persistence.Table;
+import jakarta.persistence.*;
 
 @Entity
 @Table
+@NamedQuery(name = "Employee.findByEmail", query = "select e from Employee e where e.email = ?1")
 public class Employee {
     public Employee() {
     }
