@@ -1,6 +1,7 @@
 package com.veethebest.springbooth2.repository;
 
 import com.veethebest.springbooth2.entity.Employee;
+import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.CrudRepository;
 import org.springframework.stereotype.Repository;
 
@@ -12,4 +13,8 @@ public interface EmployeeRepository extends CrudRepository<Employee, Integer> {
     List<Employee> findByAge(int age);
 
     Employee findByEmail(String email);
+
+    @Query(value = "SELECT e FROM Employee e ORDER BY name")
+    public List<Employee> findAllSortedByName();
+
 }

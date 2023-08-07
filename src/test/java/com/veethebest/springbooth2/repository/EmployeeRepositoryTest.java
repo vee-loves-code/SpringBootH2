@@ -92,6 +92,19 @@ class EmployeeRepositoryTest {
         assertNotNull(result);
     }
 
+    @Test
+    public void testFindAllSortedByName() {
+        Employee employee = getEmployee();
+        Employee employee1 = new Employee();
+        employee1.setId(2);
+        employee1.setName("Aarav");
+        employee1.setAge(20);
+        employee1.setEmail("aarav@test.com");
+        employeeRepository.save(employee);
+        employeeRepository.save(employee1);
+        List<Employee> result = employeeRepository.findAllSortedByName();
+        assertEquals(employee1.getName(), result.get(0).getName());
+    }
 }
 
 
